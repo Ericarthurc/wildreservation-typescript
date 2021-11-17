@@ -1,15 +1,51 @@
 @use "variables" as v;
 
 html {
-  background: linear-gradient(#24014b, #356cd3);
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   -webkit-tap-highlight-color: transparent;
-  min-height: 100vh;
   color: v.$white;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
   margin: 0;
   padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+select {
+  &:invalid {
+    box-shadow: none;
+    outline: none;
+    color: gray;
+  }
+  -webkit-appearance: menulist-button;
+  -moz-appearance: menulist-button;
+  color: black;
+}
+
+option {
+  color: black;
 }

@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import SnowStorm from "react-snowstorm";
 
-import Home from "./routes/Home";
-import Stats from "./routes/Stats";
-import Admin from "./routes/Admin";
+import Home from "./containers/Home";
+import Stats from "./containers/Stats";
+import Admin from "./containers/Admin";
 
 import "./styles/main.scss";
 
