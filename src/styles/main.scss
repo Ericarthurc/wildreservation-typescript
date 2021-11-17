@@ -1,0 +1,15 @@
+@use "variables" as v;
+
+html {
+  background: linear-gradient(#24014b, #356cd3);
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  color: v.$white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

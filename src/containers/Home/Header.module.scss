@@ -1,0 +1,19 @@
+.Header {
+  display: grid;
+  justify-self: center;
+  align-self: center;
+  margin-top: 20px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.Header-Graphic {
+  max-width: 460px;
+  margin: 0 5%;
+  justify-self: center;
+  align-self: center;
+}
