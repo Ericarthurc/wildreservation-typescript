@@ -1,5 +1,9 @@
 const Updater = () => {
-  return <div></div>;
+  return (
+    <>
+      <h3>Updater</h3>
+    </>
+  );
 };
 
 export default Updater;

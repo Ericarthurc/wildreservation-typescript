@@ -1,5 +1,9 @@
 const Deleter = () => {
-  return <div></div>;
+  return (
+    <>
+      <h3>Deleter</h3>
+    </>
+  );
 };
 
 export default Deleter;

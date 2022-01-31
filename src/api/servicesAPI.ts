@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_VERSION } from "./api";
 
 /**
  * @desc Get all services
@@ -8,7 +9,9 @@ import axios from "axios";
  */
 export const getServicesAPI = async (): Promise<IService[]> => {
   try {
-    const { data } = await axios.get<HTTPRequestService>("api/v1/services");
+    const { data } = await axios.get<HTTPRequestService>(
+      `api/${API_VERSION}/services`
+    );
     if (!data.success) {
       throw new Error("request not successful");
     }

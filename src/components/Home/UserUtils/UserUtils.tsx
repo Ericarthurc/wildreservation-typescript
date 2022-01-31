@@ -1,5 +1,16 @@
+import Deleter from "./Deleter";
+import Requester from "./Requester";
+import Updater from "./Updater";
+
 const UserUtils = () => {
-  return <div></div>;
+  return (
+    <>
+      <h3>User Utils</h3>
+      <Updater></Updater>
+      <Deleter></Deleter>
+      <Requester></Requester>
+    </>
+  );
 };
 
 export default UserUtils;

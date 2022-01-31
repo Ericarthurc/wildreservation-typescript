@@ -11,15 +11,14 @@ interface HTTPRequestUser {
 }
 
 interface IService {
-  _id: String;
-  date: Date;
+  id: String;
+  time: Date;
   seats: Number;
-  createdAt: Date;
 }
 
 interface IUser {
-  serviceId: String;
-  serviceDate: Date;
+  serviceid: String;
+  servicetime: Date;
   seats: Number;
   name: String;
   email: String;

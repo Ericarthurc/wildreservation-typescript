@@ -1,5 +1,12 @@
+import Service from "./Service";
+
 const Services = () => {
-  return <div></div>;
+  return (
+    <>
+      <h3>Services</h3>
+      <Service></Service>
+    </>
+  );
 };
 
 export default Services;
