@@ -2,24 +2,40 @@
 declare module "react-snowstorm";
 
 interface HTTPRequestService {
-  success: Boolean;
+  success: boolean;
   data: IService[];
 }
 
 interface HTTPRequestUser {
-  success: Boolean;
+  success: boolean;
 }
 
 interface IService {
-  id: String;
+  id: string;
   time: Date;
-  seats: Number;
+  seats: number;
 }
 
 interface IUser {
-  serviceid: String;
+  serviceid: string;
   servicetime: Date;
-  seats: Number;
-  name: String;
-  email: String;
+  seats: number;
+  name: string;
+  email: string;
+}
+
+interface IMainForm {
+  serviceid: string;
+  name: string;
+  email: string;
+  userseats: number;
+  childern: boolean;
+  students: {
+    nursery: number;
+    twoyears: number;
+    threeyears: number;
+    fouryears: number;
+    kindergarten: number;
+    wildlife: number;
+  };
 }

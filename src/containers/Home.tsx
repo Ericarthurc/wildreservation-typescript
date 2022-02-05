@@ -1,5 +1,5 @@
 import HomeHeader from "../components/Home/HomeHeader";
-import MainForm from "../components/Home/MainForm";
+import MainApp from "../components/Home/MainApp";
 
 import styles from "./Home.module.scss";
 
@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className={styles["home"]}>
       <HomeHeader />
-      <MainForm />
+      <MainApp />
     </div>
   );
 };
