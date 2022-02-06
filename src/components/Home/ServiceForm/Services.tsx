@@ -2,7 +2,8 @@ import Service from "./Service";
 
 interface Props {
   services: IService[];
-  mainFormChangeHandler: (e: any) => void;
+  mainFormDispatch: React.Dispatch<any>;
+  // mainFormChangeHandler: (e: any) => void;
 }
 
 const Services = (props: Props) => {
@@ -20,7 +21,7 @@ const Services = (props: Props) => {
   const sortedServices = props.services.map((service, _index) => {
     return (
       <Service
-        mainFormChangeHandler={props.mainFormChangeHandler}
+        mainFormDispatch={props.mainFormDispatch}
         id={service.id}
         time={service.time}
         seats={service.seats}

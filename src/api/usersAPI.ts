@@ -10,12 +10,13 @@ import { API_VERSION } from "./api";
 export const createUserAPI = async (
   formData: IMainForm
 ): Promise<HTTPRequestUser> => {
+  console.log(formData);
+
   try {
-    delete formData.children;
     const { data } = await axios.post<HTTPRequestUser>(
       `api/${API_VERSION}/users`,
       {
-        formData,
+        ...formData,
       }
     );
 

@@ -1,9 +1,12 @@
+import { mainFormChangeTextHandler } from "../../../utils/formReducers/mainFormReducer";
+
 interface Props {
   id: string;
   time: Date;
   seats: Number;
   key: React.Key;
-  mainFormChangeHandler: (e: any) => void;
+  mainFormDispatch: React.Dispatch<any>;
+  // mainFormChangeHandler: (e: any) => void;
 }
 
 const Service = (props: Props) => {
@@ -46,7 +49,7 @@ const Service = (props: Props) => {
           value={props.id}
           name="serviceid"
           className="selector__service-Radio"
-          onChange={(e) => props.mainFormChangeHandler(e)}
+          onChange={(e) => mainFormChangeTextHandler(e, props.mainFormDispatch)}
           disabled={!props.seats || props.seats <= 0}
         />
       </div>
