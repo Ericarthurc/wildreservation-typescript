@@ -7,12 +7,15 @@ import { API_VERSION } from "./api";
  * @method POST
  * @access Public
  */
-export const createUserAPI = async (user: IUser): Promise<HTTPRequestUser> => {
+export const createUserAPI = async (
+  formData: IMainForm
+): Promise<HTTPRequestUser> => {
   try {
-    const { data } = await axios.post<HTTPRequestService>(
+    delete formData.children;
+    const { data } = await axios.post<HTTPRequestUser>(
       `api/${API_VERSION}/users`,
       {
-        user,
+        formData,
       }
     );
 

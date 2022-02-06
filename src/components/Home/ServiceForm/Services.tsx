@@ -2,7 +2,7 @@ import Service from "./Service";
 
 interface Props {
   services: IService[];
-  serviceChangeHandler: (e: any) => void;
+  mainFormChangeHandler: (e: any) => void;
 }
 
 const Services = (props: Props) => {
@@ -20,7 +20,7 @@ const Services = (props: Props) => {
   const sortedServices = props.services.map((service, _index) => {
     return (
       <Service
-        serviceChangeHandler={props.serviceChangeHandler}
+        mainFormChangeHandler={props.mainFormChangeHandler}
         id={service.id}
         time={service.time}
         seats={service.seats}

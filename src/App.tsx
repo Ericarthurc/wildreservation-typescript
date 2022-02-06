@@ -29,7 +29,7 @@ const App = () => {
           }
         />
         <Route path="/stats" element={<Stats />} />
-        <Route path="/admin" element={<Admin />} />
+        {/* <Route path="/admin" element={<Admin />} /> */}
         <Route path="/*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>

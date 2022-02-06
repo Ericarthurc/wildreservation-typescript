@@ -3,7 +3,7 @@ interface Props {
   time: Date;
   seats: Number;
   key: React.Key;
-  serviceChangeHandler: (e: any) => void;
+  mainFormChangeHandler: (e: any) => void;
 }
 
 const Service = (props: Props) => {
@@ -46,7 +46,7 @@ const Service = (props: Props) => {
           value={props.id}
           name="serviceid"
           className="selector__service-Radio"
-          onChange={(e) => props.serviceChangeHandler(e)}
+          onChange={(e) => props.mainFormChangeHandler(e)}
           disabled={!props.seats || props.seats <= 0}
         />
       </div>

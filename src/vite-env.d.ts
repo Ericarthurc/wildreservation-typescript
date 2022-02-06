@@ -29,7 +29,7 @@ interface IMainForm {
   name: string;
   email: string;
   userseats: number;
-  childern: boolean;
+  children: boolean;
   students: {
     nursery: number;
     twoyears: number;

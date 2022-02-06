@@ -1,11 +1,19 @@
 import { useEffect, useReducer, useState } from "react";
 import { getServicesAPI } from "../../api/servicesAPI";
+import { createUserAPI } from "../../api/usersAPI";
+import ChildrenInputs from "./ServiceForm/ChildrenInputs";
+import Inputs from "./ServiceForm/Inputs";
 import Services from "./ServiceForm/Services";
 import UserUtils from "./UserUtils/UserUtils";
 
 const mainFormReducer = (state: IMainForm, action: any) => {
   switch (action.type) {
-    case "HANDLE INPUT TEXT":
+    case "HANDLE INPUT":
+      return {
+        ...state,
+        [action.field]: action.payload,
+      };
+    case "HANDLE NUMBER":
       return {
         ...state,
         [action.field]: action.payload,
@@ -13,7 +21,7 @@ const mainFormReducer = (state: IMainForm, action: any) => {
     case "TOGGLE CHILDERN FORM":
       return {
         ...state,
-        childern: !state.childern,
+        children: !state.children,
       };
     default:
       return state;
@@ -25,7 +33,7 @@ const initialMainFormState: IMainForm = {
   name: "",
   email: "",
   userseats: 0,
-  childern: false,
+  children: false,
   students: {
     nursery: 0,
     twoyears: 0,
@@ -55,20 +63,63 @@ const MainApp = () => {
     })();
   }, []);
 
-  const serviceChangeHandler = (e: any) => {
+  const mainFormSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(mainFormState);
+
+    try {
+      const user = await createUserAPI(mainFormState);
+    } catch (error) {
+      // error handler
+      console.log(error);
+    }
+  };
+
+  const mainFormChangeHandler = (e: any) => {
     mainFormDispatch({
-      type: "HANDLE INPUT TEXT",
+      type: "HANDLE INPUT",
       field: e.target.name,
       payload: e.target.value,
     });
   };
 
+  const mainFormChangeNumberHandler = (e: any) => {
+    mainFormDispatch({
+      type: "HANDLE NUMBER",
+      field: e.target.name,
+      payload: parseInt(e.target.value),
+    });
+  };
+
   return (
     <>
-      <Services
-        services={servicesPayload}
-        serviceChangeHandler={serviceChangeHandler}
-      />
+      <form onSubmit={mainFormSubmit}>
+        <Services
+          services={servicesPayload}
+          mainFormChangeHandler={mainFormChangeHandler}
+        />
+        {mainFormState.serviceid && (
+          <Inputs
+            mainFormState={mainFormState}
+            mainFormChangeHandler={mainFormChangeHandler}
+            mainFormChangeNumberHandler={mainFormChangeNumberHandler}
+          />
+        )}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            mainFormDispatch({
+              type: "TOGGLE CHILDERN FORM",
+            });
+          }}
+        >
+          Children!
+        </button>
+        {mainFormState.children && (
+          <ChildrenInputs formChangeHandler={mainFormChangeHandler} />
+        )}
+        <button type="submit">Reserve</button>
+      </form>
       <UserUtils />
     </>
   );
