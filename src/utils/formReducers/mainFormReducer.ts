@@ -10,6 +10,14 @@ export const mainFormReducer = (state: IMainForm, action: any) => {
         ...state,
         [action.field]: action.payload,
       };
+    case "HANDLE STUDENT NUMBER":
+      return {
+        ...state,
+        students: {
+          ...state.students,
+          [action.field]: action.payload,
+        },
+      };
     case "TOGGLE CHILDERN FORM":
       return {
         ...state,
@@ -53,6 +61,17 @@ export const mainFormChangeNumberHandler = (
 ) => {
   mainFormDispatch({
     type: "HANDLE NUMBER",
+    field: e.target.name,
+    payload: parseInt(e.target.value),
+  });
+};
+
+export const mainFormChangeStudentNumberHandler = (
+  e: any,
+  mainFormDispatch: (value: any) => void
+) => {
+  mainFormDispatch({
+    type: "HANDLE STUDENT NUMBER",
     field: e.target.name,
     payload: parseInt(e.target.value),
   });

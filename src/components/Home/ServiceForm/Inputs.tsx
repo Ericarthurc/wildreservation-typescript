@@ -1,7 +1,11 @@
+import {
+  mainFormChangeNumberHandler,
+  mainFormChangeTextHandler,
+} from "../../../utils/formReducers/mainFormReducer";
+
 interface Props {
   mainFormState: IMainForm;
-  mainFormChangeHandler: (e: any) => void;
-  mainFormChangeNumberHandler: (e: any) => void;
+  mainFormDispatch: React.Dispatch<any>;
 }
 
 const Inputs = (props: Props) => {
@@ -17,7 +21,7 @@ const Inputs = (props: Props) => {
         min="1"
         max="10"
         value={props.mainFormState.userseats}
-        onChange={(e) => props.mainFormChangeNumberHandler(e)}
+        onChange={(e) => mainFormChangeNumberHandler(e, props.mainFormDispatch)}
         name="userseats"
       />
       <label className="label__control" htmlFor="name">
@@ -28,7 +32,7 @@ const Inputs = (props: Props) => {
         type="name"
         name="name"
         value={props.mainFormState.name}
-        onChange={(e) => props.mainFormChangeHandler(e)}
+        onChange={(e) => mainFormChangeTextHandler(e, props.mainFormDispatch)}
       />
       <label className="label__control" htmlFor="email">
         Email
@@ -38,7 +42,7 @@ const Inputs = (props: Props) => {
         type="email"
         name="email"
         value={props.mainFormState.email}
-        onChange={(e) => props.mainFormChangeHandler(e)}
+        onChange={(e) => mainFormChangeTextHandler(e, props.mainFormDispatch)}
       />
     </>
   );

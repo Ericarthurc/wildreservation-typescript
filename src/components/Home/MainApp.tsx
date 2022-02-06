@@ -39,37 +39,19 @@ const MainApp = () => {
     }
   };
 
-  // const mainFormChangeHandler = (e: any) => {
-  //   mainFormDispatch({
-  //     type: "HANDLE INPUT",
-  //     field: e.target.name,
-  //     payload: e.target.value,
-  //   });
-  // };
-
-  // const mainFormChangeNumberHandler = (e: any) => {
-  //   mainFormDispatch({
-  //     type: "HANDLE NUMBER",
-  //     field: e.target.name,
-  //     payload: parseInt(e.target.value),
-  //   });
-  // };
-
   return (
     <>
       <form onSubmit={mainFormSubmit}>
         <Services
           services={servicesPayload}
           mainFormDispatch={mainFormDispatch}
-          // mainFormChangeHandler={mainFormChangeHandler}
         />
-        {/* {mainFormState.serviceid && (
+        {mainFormState.serviceid && (
           <Inputs
             mainFormState={mainFormState}
-            // mainFormChangeHandler={mainFormChangeHandler}
-            // mainFormChangeNumberHandler={mainFormChangeNumberHandler}
+            mainFormDispatch={mainFormDispatch}
           />
-        )} */}
+        )}
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -80,11 +62,9 @@ const MainApp = () => {
         >
           Children!
         </button>
-        {/* {mainFormState.children && (
-          // <ChildrenInputs
-          // // formChangeHandler={mainFormChangeHandler}
-          // />
-        )} */}
+        {mainFormState.children && (
+          <ChildrenInputs mainFormDispatch={mainFormDispatch} />
+        )}
         <button type="submit">Reserve</button>
       </form>
       <UserUtils />
