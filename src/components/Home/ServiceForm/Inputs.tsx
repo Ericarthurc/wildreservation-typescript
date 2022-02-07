@@ -1,10 +1,10 @@
 import {
   mainFormChangeNumberHandler,
   mainFormChangeTextHandler,
-} from "../../../utils/formReducers/mainFormReducer";
+} from "../../../utils/reducers/mainFormReducer";
 
 interface Props {
-  mainFormState: IMainForm;
+  mainFormState: IServiceFormState;
   mainFormDispatch: React.Dispatch<any>;
 }
 

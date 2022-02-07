@@ -8,7 +8,7 @@ import { API_VERSION } from "./api";
  * @access Public
  */
 export const createUserAPI = async (
-  formData: IMainForm
+  formData: IServiceFormState
 ): Promise<HTTPRequestUser> => {
   console.log(formData);
 
@@ -32,7 +32,7 @@ export const createUserAPI = async (
 
 export const requestUserPinByEmailAPI = async (email: string) => {
   try {
-    const { data } = await axios.post(`api/${API_VERSION}/users/util}`, {
+    const { data } = await axios.post(`api/${API_VERSION}/users/utils`, {
       email,
     });
 
@@ -51,12 +51,12 @@ export const updateUserSeatsByPinAPI = async (
   userseats: number,
   serviceid: string
 ) => {
+  const formData = { userseats, serviceid };
   try {
     const { data } = await axios.put(
-      `api/${API_VERSION}/users/util/${userpin}`,
+      `api/${API_VERSION}/users/utils/${userpin}`,
       {
-        userseats,
-        serviceid,
+        ...formData,
       }
     );
 
@@ -73,7 +73,7 @@ export const updateUserSeatsByPinAPI = async (
 export const deleteUserByPinAPI = async (userpin: string) => {
   try {
     const { data } = await axios.delete(
-      `api/${API_VERSION}/users/util/${userpin}`
+      `api/${API_VERSION}/users/utils/${userpin}`
     );
 
     if (!data.success) {

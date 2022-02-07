@@ -1,4 +1,4 @@
-export const mainFormReducer = (state: IMainForm, action: any) => {
+export const mainFormReducer = (state: IServiceFormState, action: any) => {
   switch (action.type) {
     case "HANDLE INPUT":
       return {
@@ -23,12 +23,16 @@ export const mainFormReducer = (state: IMainForm, action: any) => {
         ...state,
         children: !state.children,
       };
+    case "CLEAR MAIN FORM":
+      return {
+        ...initialMainFormState,
+      };
     default:
       return state;
   }
 };
 
-export const initialMainFormState: IMainForm = {
+export const initialMainFormState: IServiceFormState = {
   serviceid: "",
   name: "",
   email: "",
@@ -42,6 +46,14 @@ export const initialMainFormState: IMainForm = {
     kindergarten: 0,
     wildlife: 0,
   },
+};
+
+export const mainFormClearHandler = (
+  mainFormDispatch: (value: any) => void
+) => {
+  mainFormDispatch({
+    type: "CLEAR MAIN FORM",
+  });
 };
 
 export const mainFormChangeTextHandler = (

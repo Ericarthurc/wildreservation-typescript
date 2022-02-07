@@ -1,4 +1,5 @@
-import { mainFormChangeTextHandler } from "../../../utils/formReducers/mainFormReducer";
+import { userUtilFormHandler } from "../../../utils/reducers/mainAppReducer";
+import { mainFormChangeTextHandler } from "../../../utils/reducers/mainFormReducer";
 
 interface Props {
   id: string;
@@ -6,7 +7,8 @@ interface Props {
   seats: Number;
   key: React.Key;
   mainFormDispatch: React.Dispatch<any>;
-  // mainFormChangeHandler: (e: any) => void;
+  mainAppDispatch: React.Dispatch<any>;
+  mainFormState: IServiceFormState;
 }
 
 const Service = (props: Props) => {
@@ -15,41 +17,45 @@ const Service = (props: Props) => {
   return (
     <label>
       <div
-      // className={`
-      //   selector__service ${
-      //     !props.seats || props.seats <= 0
-      //       ? "selector__service-Disabled"
-      //       : props.checked === props.id
-      //       ? "selector__service-Active"
-      //       : "selector__service-Inactive"
-      //   }
-      //   `}
+        className={`
+        home_service-selector ${
+          !props.seats || props.seats <= 0
+            ? "home_service-selector-disabled"
+            : props.mainFormState.serviceid === props.id
+            ? "home_service-selector-active"
+            : "home_service-selector-inactive"
+        }
+        `}
       >
-        <p className="selector__service-time">
+        <p className="home_service-selector-time">
           {date.toLocaleTimeString("en-US", {
             weekday: "long",
             hour: "2-digit",
             minute: "2-digit",
           })}
         </p>
-        <p className="selector__service-date">
+        <p className="home_service-selector-date">
           {date.toLocaleDateString("en-US", {
             day: "numeric",
             month: "long",
           })}
         </p>
-        <p className="selector__service-label">Seats:</p>
+        <p className="home_service-selector-label">Seats:</p>
         {props.seats <= 0 ? (
-          <p className="selector__service-seats">Full</p>
+          <p className="home_service-selector-seats">Full</p>
         ) : (
-          <p className="selector__service-seats">{props.seats}</p>
+          <p className="home_service-selector-seats">{props.seats}</p>
         )}
         <input
           type="radio"
           value={props.id}
+          checked={props.mainFormState.serviceid === props.id}
           name="serviceid"
-          className="selector__service-Radio"
-          onChange={(e) => mainFormChangeTextHandler(e, props.mainFormDispatch)}
+          className="home_service-selector-Radio"
+          onChange={(e) => {
+            mainFormChangeTextHandler(e, props.mainFormDispatch);
+            userUtilFormHandler("", props.mainAppDispatch);
+          }}
           disabled={!props.seats || props.seats <= 0}
         />
       </div>

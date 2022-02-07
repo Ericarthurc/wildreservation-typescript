@@ -1,4 +1,4 @@
-import { mainFormChangeStudentNumberHandler } from "../../../utils/formReducers/mainFormReducer";
+import { mainFormChangeStudentNumberHandler } from "../../../utils/reducers/mainFormReducer";
 
 interface Props {
   mainFormDispatch: React.Dispatch<any>;
@@ -13,7 +13,6 @@ const ChildrenInputs = (props: Props) => {
           mainFormChangeStudentNumberHandler(e, props.mainFormDispatch)
         }
         name="nursery"
-        className="inputs__control"
         defaultValue=""
         required
       >
@@ -30,7 +29,6 @@ const ChildrenInputs = (props: Props) => {
           mainFormChangeStudentNumberHandler(e, props.mainFormDispatch)
         }
         name="twoyears"
-        className="inputs__control"
         defaultValue=""
         required
       >
@@ -47,7 +45,6 @@ const ChildrenInputs = (props: Props) => {
           mainFormChangeStudentNumberHandler(e, props.mainFormDispatch)
         }
         name="threeyears"
-        className="inputs__control"
         defaultValue=""
         required
       >
@@ -64,7 +61,6 @@ const ChildrenInputs = (props: Props) => {
           mainFormChangeStudentNumberHandler(e, props.mainFormDispatch)
         }
         name="fouryears"
-        className="inputs__control"
         defaultValue=""
         required
       >
@@ -81,7 +77,6 @@ const ChildrenInputs = (props: Props) => {
           mainFormChangeStudentNumberHandler(e, props.mainFormDispatch)
         }
         name="kindergarten"
-        className="inputs__control"
         defaultValue=""
         required
       >
@@ -98,7 +93,6 @@ const ChildrenInputs = (props: Props) => {
           mainFormChangeStudentNumberHandler(e, props.mainFormDispatch)
         }
         name="wildlife"
-        className="inputs__control"
         defaultValue=""
         required
       >

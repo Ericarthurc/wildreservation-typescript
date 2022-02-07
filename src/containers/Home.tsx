@@ -1,11 +1,11 @@
 import HomeHeader from "../components/Home/HomeHeader";
 import MainApp from "../components/Home/MainApp";
 
-import styles from "./Home.module.scss";
+import "./Home.scss";
 
 const Home = () => {
   return (
-    <div className={styles["home"]}>
+    <div>
       <HomeHeader />
       <MainApp />
     </div>

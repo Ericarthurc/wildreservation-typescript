@@ -1,12 +1,10 @@
 import headerGraphic from "../../assets/images/header.svg";
 
-import styles from "./HomeHeader.module.scss";
-
 const HomeHeader = () => {
   return (
-    <div className={styles["homeheader"]}>
+    <div className="home_header">
       <img
-        className={styles["homeheader-graphic"]}
+        className="home_header-graphic"
         src={headerGraphic}
         alt="main-logo"
       />

@@ -24,7 +24,7 @@ interface IUser {
   email: string;
 }
 
-interface IMainForm {
+interface IServiceFormState {
   serviceid: string;
   name: string;
   email: string;
@@ -38,4 +38,11 @@ interface IMainForm {
     kindergarten: number;
     wildlife: number;
   };
+}
+
+interface IMainAppState {
+  formStatusMessage: string;
+  formStatusClass: string;
+  userUtilFormState: string;
+  userUtilFormMessage: string;
 }
