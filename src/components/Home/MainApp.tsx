@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import socketclient from "socket.io-client";
 import { getServicesAPI } from "../../api/servicesAPI";
 import { createUserAPI } from "../../api/usersAPI";
 import {
@@ -9,10 +10,10 @@ import {
   initialMainFormState,
   mainFormReducer,
 } from "../../utils/reducers/mainFormReducer";
-import ChildrenInputs from "./ServiceForm/ChildrenInputs";
-import Inputs from "./ServiceForm/Inputs";
-import Services from "./ServiceForm/Services";
-import UserUtils from "./UserUtils/UserUtils";
+import ChildrenInputs from "./MainForm/ChildrenInputs";
+import Inputs from "./MainForm/Inputs";
+import Services from "./MainForm/Services";
+import UtilityForms from "./UtilityForms/UtilityForms";
 
 const MainApp = () => {
   const [servicesPayload, setServicesPayload] = useState<IService[]>([]);
@@ -26,16 +27,26 @@ const MainApp = () => {
   );
 
   useEffect(() => {
-    (async () => {
-      try {
-        const services = await getServicesAPI();
-        setServicesPayload(services);
-      } catch (error) {
-        // error handler
-        console.log(error);
-      }
-    })();
+    getServicePayload();
+    const socket = socketclient();
+    socket.on("userUpdate", () => {
+      console.log("SOCKET!");
+
+      getServicePayload();
+    });
   }, []);
+
+  const getServicePayload = async () => {
+    console.log("triggered!");
+
+    try {
+      const services = await getServicesAPI();
+      setServicesPayload(services);
+    } catch (error) {
+      // error handler
+      console.log(error);
+    }
+  };
 
   const mainFormSubmit = async (e: any) => {
     e.preventDefault();
@@ -58,7 +69,7 @@ const MainApp = () => {
             mainAppDispatch={mainAppDispatch}
           />
         </div>
-        {mainFormState.serviceid && (
+        {mainFormState.serviceId && (
           <>
             <Inputs
               mainFormState={mainFormState}
@@ -81,7 +92,7 @@ const MainApp = () => {
           </>
         )}
       </form>
-      <UserUtils
+      <UtilityForms
         services={servicesPayload}
         mainAppState={mainAppState}
         mainFormDispatch={mainFormDispatch}

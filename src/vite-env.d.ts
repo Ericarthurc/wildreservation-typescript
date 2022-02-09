@@ -11,21 +11,21 @@ interface HTTPRequestUser {
 }
 
 interface IService {
-  id: string;
+  _id: string;
   time: Date;
   seats: number;
 }
 
 interface IUser {
-  serviceid: string;
-  servicetime: Date;
+  serviceId: string;
+  serviceTime: Date;
   seats: number;
   name: string;
   email: string;
 }
 
 interface IServiceFormState {
-  serviceid: string;
+  serviceId: string;
   name: string;
   email: string;
   userseats: number;

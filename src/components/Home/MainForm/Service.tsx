@@ -2,7 +2,7 @@ import { userUtilFormHandler } from "../../../utils/reducers/mainAppReducer";
 import { mainFormChangeTextHandler } from "../../../utils/reducers/mainFormReducer";
 
 interface Props {
-  id: string;
+  _id: string;
   time: Date;
   seats: Number;
   key: React.Key;
@@ -21,7 +21,7 @@ const Service = (props: Props) => {
         home_service-selector ${
           !props.seats || props.seats <= 0
             ? "home_service-selector-disabled"
-            : props.mainFormState.serviceid === props.id
+            : props.mainFormState.serviceId === props._id
             ? "home_service-selector-active"
             : "home_service-selector-inactive"
         }
@@ -48,9 +48,9 @@ const Service = (props: Props) => {
         )}
         <input
           type="radio"
-          value={props.id}
-          checked={props.mainFormState.serviceid === props.id}
-          name="serviceid"
+          value={props._id}
+          checked={props.mainFormState.serviceId === props._id}
+          name="serviceId"
           className="home_service-selector-Radio"
           onChange={(e) => {
             mainFormChangeTextHandler(e, props.mainFormDispatch);

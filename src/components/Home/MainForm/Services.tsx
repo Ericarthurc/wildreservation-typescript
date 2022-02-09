@@ -25,10 +25,10 @@ const Services = (props: Props) => {
         mainAppDispatch={props.mainAppDispatch}
         mainFormState={props.mainFormState}
         mainFormDispatch={props.mainFormDispatch}
-        id={service.id}
+        _id={service._id}
         time={service.time}
         seats={service.seats}
-        key={service.id}
+        key={service._id}
       />
     );
   });

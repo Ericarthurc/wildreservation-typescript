@@ -34,16 +34,16 @@ const Updater = (props: Props) => {
     const date = new Date(service.time);
     return (
       <div
-        key={service.id}
+        key={service._id}
         // className={styles["Input-Container__form"]}
       >
         <input
           // className={styles["UserUtils-Checkbox"]}
           type="checkbox"
-          value={service.id}
-          name={service.id}
-          checked={selectedService === service.id}
-          onChange={() => setSelectedService(service.id)}
+          value={service._id}
+          name={service._id}
+          checked={selectedService === service._id}
+          onChange={() => setSelectedService(service._id)}
           disabled={!service.seats || service.seats <= 0}
         ></input>
         <span

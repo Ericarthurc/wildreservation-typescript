@@ -12,7 +12,7 @@ interface Props {
   mainAppDispatch: React.Dispatch<any>;
 }
 
-const UserUtils = (props: Props) => {
+const UtilityForms = (props: Props) => {
   return (
     <>
       <button
@@ -65,4 +65,4 @@ const UserUtils = (props: Props) => {
   );
 };
 
-export default UserUtils;
+export default UtilityForms;

@@ -33,7 +33,7 @@ export const mainFormReducer = (state: IServiceFormState, action: any) => {
 };
 
 export const initialMainFormState: IServiceFormState = {
-  serviceid: "",
+  serviceId: "",
   name: "",
   email: "",
   userseats: 0,
